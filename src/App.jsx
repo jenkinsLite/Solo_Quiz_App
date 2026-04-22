@@ -17,12 +17,16 @@ function App() {
           const id = nanoid()
           const randIndex = Math.floor(Math.random() * result.incorrect_answers.length)
           const splicedAnswers = result.incorrect_answers.toSpliced(randIndex, 0, result.correct_answer) 
-          const allAnswers = splicedAnswers.map(answer => ({ answer: answer, isChecked: false, qId: id }))
+          const allAnswers = splicedAnswers.map(answer => ({ 
+            answer: answer, 
+            isCorrect: answer === result.correct_answer, 
+            isChecked: false, 
+            qId: id 
+          }))
 
           return  {
             id: id,
             question: result.question,
-            correctAnswer: result.correct_answer,
             allAnswers: allAnswers 
           }
           

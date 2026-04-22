@@ -4,7 +4,11 @@ import { useState } from 'react'
 export default function Questions(props) {
 
     function checkAnswers() {
-        console.log("checkAnswers: ", props.questions)
+        props.questions.map(question => {
+            const guessedAnswer =  question.allAnswers.filter(answer => answer.isChecked)[0].answer
+            const correctAnswer = question.allAnswers.filter(answer => answer.isCorrect)[0].answer
+            const isGuessCorrect = question.allAnswers.some(answer => answer.isChecked && answer.isCorrect)
+        })
     }
 
     function setAnswer(e) {
