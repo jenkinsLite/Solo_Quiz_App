@@ -86,6 +86,20 @@ main {
   cursor: pointer;
 }
 
+.questions-container label.green {
+  background-color: #94D7A2;
+  border: none;
+}
+
+.questions-container label.red {
+  background-color: #F8BCBC;
+  border: none;
+}
+
+.questions-container label.opaque {
+  opacity: 0.5;
+}
+
 .questions-container label:has(input:checked)   {
   background-color: #D6DBF5;
   border: none;
@@ -94,6 +108,11 @@ main {
 .questions-container input {
   appearance: none;
   margin: 0;
+}
+
+.questions-container input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .check-answers-btn {
