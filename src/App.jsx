@@ -32,6 +32,7 @@ function App() {
               id: nanoid(),
               answer: answer, 
               isCorrect: answer === result.correct_answer, 
+              point: 0,
               isChecked: false, 
               isDisabled: false,
               endClasses: "",
@@ -57,6 +58,7 @@ function App() {
                     setQuestions={setQuestions} 
                     allAnswers={allAnswers}
                     setAllAnswers={setAllAnswers}
+                    getQuestions={getQuestions}
         />}
       </main>
     </>

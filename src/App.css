@@ -115,6 +115,20 @@ main {
   pointer-events: none;
 }
 
+.check-answers-container {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.check-answers-container > p {
+  color: #293264;
+  font-family: "Inter", sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  margin-right: 2em;
+}
+
 .check-answers-btn {
   font-family: "Inter", sans-serif;
   font-size: 2em;
@@ -124,5 +138,4 @@ main {
   padding: 0.75em 2em;
   border-radius: 1em;
   cursor: pointer;
-  margin-top: 2em;
 }
