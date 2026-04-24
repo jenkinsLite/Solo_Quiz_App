@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import he from 'he'
 import { useState } from 'react'
 
 export default function Questions(props) {
@@ -36,11 +37,12 @@ export default function Questions(props) {
     const showQuestions = props.questions.map((question, index) => {
      
         const answers = props.allAnswers.map(answers => answers.filter(answer => answer.qId === question.id).map(answer => { 
-                return <li key={answer.id}><label className={answer.endClasses}>{answer.answer}
+                const decodedAnswer = he.decode(answer.answer)
+                return <li key={answer.id}><label className={answer.endClasses}>{decodedAnswer}
                     <input  
                         type="radio" 
                         name={question.id} 
-                        value={answer.answer} 
+                        value={decodedAnswer} 
                         checked={answer.isChecked} 
                         onChange={setAnswer} 
                         disabled={answer.isDisabled}/>
@@ -50,7 +52,7 @@ export default function Questions(props) {
 
         return (
             <div key={question.id} className="questions-container">
-                <p>{question.question}</p>
+                <p>{he.decode(question.question)}</p>
                 <ul>
                     {answers} 
                 </ul>
